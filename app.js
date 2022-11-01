@@ -1,25 +1,25 @@
-const express = require('express');
+const express = require('express') // loads the express package
+const app = express() // executes an express server 
+const port = 3000 // defining our server port
 
-const hbs = require('hbs');
-const path = require('path');
-const PunkAPIWrapper = require('punkapi-javascript-wrapper');
+app.use(express.static('public')); // configuration step which tells where my static files are located
 
-const app = express();
-const punkAPI = new PunkAPIWrapper();
+app.get('/', (req, res) => { // defining my homepage route
 
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
+res.sendFile(__dirname + '/views/jlohome-page.html')
+})
 
-app.use(express.static(path.join(__dirname, 'public')));
+aapp.get('/about', (request, response, next) => 
+response.sendFile(__dirname + '/views/about.html'));
 
-// Register the location for handlebars partials here:
+app.get('/works', (request, response, next) => 
+response.sendFile(__dirname + '/views/works.html'));
 
-// ...
+app.get('/foto', (request, response, next) => 
+response.sendFile(__dirname + '/views/foto.html'));
 
-// Add the route handlers here:
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
 
-app.listen(3000, () => console.log('🏃‍ on port 3000'));
+app.listen(port, () => { // allows incoming requests from clients
+  console.log(`Example app listening on port ${port}`)
+})
