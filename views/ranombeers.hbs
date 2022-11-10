@@ -1,3 +1,36 @@
-{{>beerPartials this}}
-<p>{{this.food_pairing}}</p>
-<p>{{this.brewers_tips}}</p>
+<div>
+ 
+    <div>
+
+        {{#each randomBeers}}
+        <div>
+         <img src="{{image_url}}" alt="beer">
+        </div>
+        
+        <div>
+        <h3>{{name}}</h3>
+        <p>{{description}}</p>
+        <p>{{tagline}}</p>
+        <div>
+        <h4>Food Pairing</h4>
+        <ul>
+        {{#each food_pairing}}
+        <li>{{this}}</li>
+        {{/each}}
+        
+        </ul>
+        </div>
+       
+        <p>
+            <span>Brewers Tips</span>
+            {{brewers_tips}}</p>
+        </div>
+       
+    
+
+        {{/each}}
+
+    </div>
+    <hr>
+    <a href="/">Back to Home</a>
+</div>
