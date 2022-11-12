@@ -30,7 +30,7 @@ app.get('/beers', (req, res) => {
 
 });
 
-app.get('/ranombeers', (req, res) => {
+app.get('/randombeers', (req, res) => {
   punkAPI
     .getRandom()
     .then(responseFromAPI => {
